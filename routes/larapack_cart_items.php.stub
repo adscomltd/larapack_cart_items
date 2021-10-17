@@ -1,0 +1,29 @@
+<?php
+
+use Adscom\LarapackCartItems\Http\Controllers\CartItemController;
+
+Route::prefix('cart-items')
+  ->middleware(['auth'])
+  ->name('cart.')
+  ->group(function () {
+    Route::get('/', [CartItemController::class, 'index'])
+      ->name('index');
+    Route::post('/', [CartItemController::class, 'store'])
+      ->name('store');
+    Route::put('/{id}', [CartItemController::class, 'update'])
+      ->name('update')
+      ->whereNumber('id');
+    Route::delete('/{id}', [CartItemController::class, 'destroy'])
+      ->name('destroy')
+      ->whereNumber('id');
+
+    Route::prefix('batch')
+      ->name('batch.')
+      ->group(function () {
+        Route::post('/destroy', [CartItemController::class, 'batchDestroy'])
+          ->name('destroy');
+
+        Route::post('/store', [CartItemController::class, 'batchStore'])
+          ->name('store');
+      });
+  });
