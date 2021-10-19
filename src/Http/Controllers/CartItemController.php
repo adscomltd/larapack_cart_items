@@ -43,6 +43,6 @@ class CartItemController extends Controller
   {
     $service->validateProductItem($request, true);
     $validated = $request->validated();
-    $service->addCartItems($validated);
+    $service->addCartItems($validated['data']);
   }
 }

@@ -19,7 +19,7 @@ abstract class CartService
 
     if ($isBatch) {
       $rules = [
-        'data.id' => $rules,
+        'data.*.id' => $rules,
       ];
     } else {
       $rules = [
