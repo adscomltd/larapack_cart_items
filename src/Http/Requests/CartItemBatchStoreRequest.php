@@ -26,12 +26,12 @@ class CartItemBatchStoreRequest extends FormRequest
   {
     return [
       'data' => 'array',
-      'data.id' => [
+      'data.*.id' => [
         'required',
         'integer',
         'gt:0',
       ],
-      'data.qty' => 'required|integer|gt:0',
+      'data.*.qty' => 'required|integer|gt:0',
     ];
   }
 }
