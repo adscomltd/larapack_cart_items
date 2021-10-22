@@ -2,6 +2,7 @@
     "name": "adscomltd/larapack_cart_items",
     "description": "Add support for cart items",
     "license": "MIT",
+    "version": "0.0.3",
     "authors": [
         {
             "name": "Armen Matevosyan",
